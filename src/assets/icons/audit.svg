@@ -1,0 +1,31 @@
+
+<svg width="50px" height="50px" viewBox="0 0 50 50" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.1 (44463) - http://www.bohemiancoding.com/sketch -->
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <polygon id="path-1" points="0 50 50 50 50 0 0 0"></polygon>
+    </defs>
+    <g id="index" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop-index" transform="translate(-1162.000000, -600.000000)">
+            <g id="Services" transform="translate(126.000000, 598.000000)">
+                <g id="Tabs" transform="translate(11.000000, 0.000000)">
+                    <g id="Consalting" transform="translate(964.000000, 2.000000)">
+                        <g id="Page-1" transform="translate(61.000000, 0.000000)">
+                            <polygon id="Stroke-1" stroke="#000000" stroke-width="1.25" stroke-linejoin="round" points="29.1666667 19.7916667 17.7083333 9.375 17.7083333 1.04166667 48.9583333 1.04166667 48.9583333 19.7916667 41.6666667 19.7916667 33.3333333 28.125 33.3333333 19.7916667"></polygon>
+                            <path d="M12.5,33.7239583 L12.5,38.2697917 L4.28958333,41.2114583 C2.32291667,41.9114583 1.04166667,43.771875 1.04166667,45.8572917 L1.04166667,48.9572917 L32.2916667,48.9572917 L32.2916667,45.8572917 C32.2916667,43.771875 31.0104167,41.9114583 29.04375,41.2114583 L20.8333333,38.2697917 L20.8333333,33.4635417" id="Stroke-3" stroke="#000000" stroke-width="1.25" stroke-linejoin="round"></path>
+                            <path d="M24.6845833,25.1097917 C24.6845833,30.5577083 21.0033333,34.9785417 16.4616667,34.9785417 C11.92,34.9785417 8.23666667,30.5577083 8.23666667,25.1097917 C8.23666667,19.6597917 11.92,15.243125 16.4616667,15.243125 C21.0033333,15.243125 24.6845833,19.6597917 24.6845833,25.1097917 Z" id="Stroke-5" stroke="#000000" stroke-width="1.25" stroke-linejoin="round"></path>
+                            <path d="M24.641875,24.2145833 C24.3647917,24.2541667 24.141875,24.2354167 23.8627083,24.2875 C21.060625,24.8270833 19.2627083,23.8125 17.7210417,21.1145833 C16.7939583,22.8875 13.904375,24.2875 11.5272917,24.2875 C10.3585417,24.2875 9.35020833,24.0479167 8.34395833,23.5208333" id="Stroke-7" stroke="#000000" stroke-width="1.25" stroke-linejoin="round"></path>
+                            <mask id="mask-2" fill="white">
+                                <use xlink:href="#path-1"></use>
+                            </mask>
+                            <g id="Clip-10"></g>
+                            <polygon id="Fill-9" fill="#000000" mask="url(#mask-2)" points="39.5833333 12.5 41.6666667 12.5 41.6666667 10.4166667 39.5833333 10.4166667"></polygon>
+                            <polygon id="Fill-11" fill="#000000" mask="url(#mask-2)" points="33.3333333 12.5 35.4166667 12.5 35.4166667 10.4166667 33.3333333 10.4166667"></polygon>
+                            <polygon id="Fill-12" fill="#000000" mask="url(#mask-2)" points="27.0833333 12.5 29.1666667 12.5 29.1666667 10.4166667 27.0833333 10.4166667"></polygon>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

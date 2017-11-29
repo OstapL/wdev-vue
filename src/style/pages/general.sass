@@ -1,0 +1,94 @@
+h1.title
+  margin-top: rem-calc(50)
+section
+  position: relative
+section#page
+  height: 100%
+
+#experience
+  hr
+    margin-top: rem-calc(50)
+    margin-bottom: rem-calc(50)
+  ul
+    li
+      margin-bottom: rem-calc(10)
+      &:last-child
+        margin-bottom: 0
+  .areas
+    margin-top: rem-calc(50)
+    h2,
+    h1
+      margin-bottom: rem-calc(20)
+  .skills
+    margin-top: rem-calc(30)
+    h1,
+    h3
+      margin-bottom: rem-calc(20)
+  .contact
+    margin-top: rem-calc(30)
+    margin-bottom: rem-calc(50)
+  .education
+    margin-bottom: rem-calc(80)
+hr
+  &.line
+    border-bottom: 5px solid $catalinablue
+
+#portfolio,
+#who-we-are
+  margin-top: rem-calc(70)
+  .top-wrap
+    margin-bottom: rem-calc(110)
+    h2
+      margin-bottom: rem-calc(10)
+    .text
+      max-width: 760px
+      margin: auto
+      h4
+        margin-bottom: 0
+    hr
+      max-width: 96px
+      margin-bottom: 0
+      margin-top: rem-calc(25)
+
+// disable outline 
+*
+  outline: none
+
+.popups
+  text-align: center
+  max-width: 388px
+  width: 100%
+  padding-top: rem-calc(35)
+  padding-bottom: rem-calc(35)
+  opacity: 0
+  box-shadow: 0 3px 20px 0 rgba(0,0,0,0.50)
+  border-radius: 2px
+  position: absolute
+  transform: translate(-50%, -50%)
+  top: 50%
+  left: 50%
+  background-color: $white
+  transition: all 0.5s ease-in-out
+  z-index: -1
+  visibility: hidden
+  h3
+    color: $slategray
+  .circle-icon
+    width: 42px
+    height: 42px
+    background-color: $catalinablue
+    color: $white
+    position: relative
+    font-size: 30px
+    border-radius: 100em!important
+    margin-top: 10px
+    &:before
+      position: absolute
+      transform: translate(-50%, -50%)
+      top: 50%
+      left: 50%
+  &.is-active
+    transition: all 0.5s ease-in-out
+    opacity: 0.9
+    z-index: 2
+    visibility: visible
