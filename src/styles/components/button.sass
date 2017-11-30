@@ -1,0 +1,62 @@
+.button
+  &:hover
+    background-color: $tundora
+  &.main
+    padding: rem-calc(15) rem-calc(36)
+    background-color: $catalinablue
+    font-family: Raleway
+    font-weight: 900
+    &:hover
+      background-color: rgba($catalinablue, .7)
+
+.button-white
+  font-size: rem-calc(16)
+  padding: 16px 76px
+  color: $white
+  border: solid 5px $white
+  border-radius: 2px
+  font-family: Raleway
+  font-weight: 900
+  +mt(.3s)
+  &:hover
+    +mt(.3s)
+    background-color: $white
+    color: $catalinablue
+
+.close-button
+  position: absolute
+  color: $slategray
+  cursor: pointer
+  right: 5px
+  top: 5px
+  font-size: 36px
+  line-height: 1
+  font-weight: 900
+  +mt(.3s)
+  &:hover
+    +mt(.3s)
+    color: rgba($slategray, 0.7)
+
+.circle-play
+  width: 134px
+  height: 134px
+  border-radius: 100em
+  background-color: rgba($slategray, 0.6)
+  position: relative
+  cursor: pointer
+  +mt(.3s)
+  i
+    +mt(.3s)
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+    text-align: center
+    font-size: 40px
+    color: $catalinablue
+  &:hover
+    +mt(.3s)
+    background-color: rgba($slategray, 0.9)
+    i
+      +mt(.3s)
+      color: $white

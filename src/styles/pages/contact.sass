@@ -1,0 +1,95 @@
+@import 'color';
+@import 'settings';
+@import 'components/animation';
+#contact
+  margin-top: rem-calc(25)
+  .top-header
+    position: relative
+    min-height: 350px
+    overflow: hidden
+    .background
+      background-position: center center
+      background-size: cover
+      position: absolute
+      width: 100%
+      height: 400px
+      -webkit-filter: blur(1px)
+      filter: blur(1px)
+
+    .text-wrap
+      color: $white
+      transform: translate(-50%,-50%)
+      left: 50%
+      top: 50%
+      position: absolute
+      min-width: 320px
+      max-width: 450px
+      z-index: 2
+      @media screen and (min-width: 40em)
+        min-width: 450px
+      *
+        color: $white
+    .line
+      max-width: 96px
+      margin-bottom: 0
+  .contact-form
+    position: relative
+    margin-bottom: rem-calc(100)
+    .header
+      text-align: center
+
+      .left-text,
+      .right-text
+        display: inline-block
+        min-width: 180px
+        @media screen and (max-width: 39.9375em)
+          display: block
+
+        h4
+          margin-bottom: 0
+        .city
+          font-weight: 300
+          font-family: Raleway
+          margin-bottom: 15px
+        p
+          margin-bottom: 0
+      .fa-hand-peace-o
+        display: inline-block
+        margin-left: 50px
+        margin-right: 50px
+        @media screen and (max-width: 767px)
+          margin-left: 20px
+          margin-right: 20px
+        @media screen and (max-width: 39.9375em)
+          margin-bottom: 20px
+          font-size: 36px
+      .left-text
+        text-align: right
+        @media screen and (max-width: 39.9375em)
+          text-align: center
+          margin-bottom: 25px
+      .right-text
+        text-align: left
+        @media screen and (max-width: 39.9375em)
+          text-align: center
+          margin-bottom: 25px
+    form
+      max-width: 750px
+      margin: auto
+      position: relative
+      top: -30px
+      background-color: $porcelain-two
+      padding: 50px 98px 57px 98px
+      -webkit-box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.75)
+      -moz-box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.75)
+      box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.75)
+      @media screen and (max-width: 39.9375em)
+        padding-left: 20px
+        padding-right: 20px
+      .button
+        margin-bottom: 0
+      .fa-hand-peace-o
+        text-align: center
+        font-size: 72px
+        color: $slategray
+        margin-bottom: rem-calc(50)

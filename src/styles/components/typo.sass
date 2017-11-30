@@ -1,0 +1,57 @@
+@font-face
+  font-family: 'Avenir'
+  src: url('/../assets/fonts/AvenirLTStd-Light.woff') format("woff")
+  font-style: normal
+
+.link-1
+  color: $malibu
+  text-decoration: underline
+  +mt(.3s)
+  &:hover
+    +mt(.3s)
+    color: rgba($koromiko, .7)
+    text-decoration: none
+.link-2
+  color: $koromiko
+  +mt(.3s)
+  &:hover
+    +mt(.3s)
+    color: rgba($koromiko, .7)
+
+pre
+  padding: rem-calc(16)
+  overflow: auto
+  line-height: 1.45
+  background-color: $aqua-haze
+  border-radius: rem-calc(3)
+  margin-bottom: rem-calc(20)
+p
+  font-size: 16px
+  line-height: 24px
+  @media screen and (max-width: 39.9375em)
+    font-size: 14px
+h1,h2,h3,h4,h5,h6
+  font-family: Raleway
+  font-weight: 900
+  letter-spacing: normal
+h1
+  &.big
+    font-size: rem-calc(72)
+    line-height: 85px
+    @media screen and (max-width: 39.9375em)
+      font-size: rem-calc(30)
+h2
+  line-height: 48px
+h3
+  line-height: 30px
+h4
+  line-height: 30px
+  &.light
+    font-weight: 300
+    font-family: Raleway
+    color: $slategray
+h5
+  line-height: 25px
+
+.light
+  font-weight: 300
