@@ -8,22 +8,22 @@
 
 <script>
 
-import header from './components/general/header.vue';
-import footer from './components/general/footer.vue';
+import header from './components/general/header';
+import footer from './components/general/footer';
 
 export default {
   components: {
     'app-header': header,
-    'app-footer': footer
+    'app-footer': footer,
   },
-  data () {
+  data() {
     return {
-      msg: 'Welcome to Your App'
-    }
-  }
-}
+      msg: 'Welcome to Your App',
+    };
+  },
+};
 </script>
 
 <style lang="scss">
-  @import './style/app';
+  @import 'styles/app';
 </style>

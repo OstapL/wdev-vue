@@ -8,15 +8,15 @@
 <script>
 
 export default {
-  data () {
+  data() {
     return {
-      msg: 'About page'
-    }
+      msg: 'About page',
+    };
   },
   methods: {
 
-  }
-}
+  },
+};
 </script>
 
 <style>
