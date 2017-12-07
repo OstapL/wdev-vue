@@ -1,5 +1,5 @@
 // http://eslint.org/docs/user-guide/configuring
-
+/* eslint-disable */
 module.exports = {
   root: true,
   parser: 'babel-eslint',
@@ -25,8 +25,9 @@ module.exports = {
   // add your custom rules here
   'rules': {
     // don't require .vue extension when importing
-    'import/extensions': ['error', 'always', {
-      'js': 'never',
+    "no-console": "off",
+    'import/extensions': ['error', 'never', {
+      '**/*.js': 'never',
       'vue': 'never'
     }],
     // allow optionalDependencies

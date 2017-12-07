@@ -6,16 +6,16 @@
           router-link(to="/").show-for-small-only.logo
             img(src="../../assets/logo.svg" alt="Webdevelop.pro")
           li
-            router-link(to="about") About
+            router-link(to="/about") About
           li
             a(href="portfolio.html") Portfolio
           li.logo.show-for-medium
             router-link(to="/")
               img(src="../../assets/logo.svg" alt="Webdevelop.pro")
           li
-            router-link(to="contact") Contacts
+            router-link(to="/contact") Contacts
           li
-            a(href="#") Blog
+            router-link(to="/blogs/all-post") Blog
 </template>
 
 
