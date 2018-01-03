@@ -24,7 +24,7 @@ export default new Router({
     { name: 'contact', path: '/contact', component: contact },
     // blogs
     { name: 'allposts', path: '/blogs/all-post', component: allposts },
-    { name: 'singlepost', path: '/blogs/:id', component: singlepost },
+    { name: 'singlepost', path: '/blogs/:id', props: true, component: singlepost },
     // blog admin
     { name: 'addpost', path: '/blogs/admin/add-post', component: addpost },
   ],

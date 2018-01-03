@@ -22,7 +22,7 @@
                 a(href="#").button.small.expanded.main Read more
     .all-posts
       .row
-        .columns.large-4.medium-6.small-12(v-for="blog in blogs")
+        .columns.large-4.medium-6.small-12(v-for="blog in blogs" v-bind:key="blog.id")
           router-link(v-bind:to="'/blogs/' + blog.id")
             .one-post
               img(src="../../../assets/blog/one-post.png" alt="").img-post
@@ -31,34 +31,18 @@
                 hr.line
                 p.text {{ blog.content }}
                 .date-more
-                  h6.light {{ blog.date }}
+                  // h6.light {{ blog.hashtags }}
                   i(aria-hidden="true").fa.fa-long-arrow-right
 </template>
 
 <script>
 
 export default {
-  data () {
-        return {
-          blogs: [],
-          search: '',
-        }
-    },
-  created() {
-    this.$http.get('https://webdev-vue.firebaseio.com/posts.json').then(function(data){
-        return data.json()
-    }).then(function(data){
-        var blogsArray = [];
-        for (let key in data){
-            data[key].id = key;
-            blogsArray.push(data[key]);
-        }
-        this.blogs = blogsArray;
-    });
-  },
-  methods: {
-
-  },
+  computed: {
+    blogs () {
+      return this.$store.getters.loadedPosts
+    }
+  }
 };
 </script>
 

@@ -5,9 +5,9 @@
         .autor
           img(src="../../../assets/team/ceo.png" alt="").autor-img
           .autor-name
-            h4 {{ blog.author }}
-            h4.light {{ blog.position }}
-          h4.light.date {{ blog.date }}
+            // h4 {{ blog.author }}
+            // h4.light {{ blog.position }}
+          // h4.light.date {{ blog.date }}
         .content
           h2.text-center {{ blog.title }}
           hr.line
@@ -56,29 +56,17 @@
 </template>
 
 <script>
-
 export default {
-  data() {
-    return {
-      msg: 'single post page',
-      id: this.$route.params.id,
-      blog: {
-
-      },
-    };
-  },
-  created() {
-    this.$http.get('https://webdev-vue.firebaseio.com/posts/' + this.id + '.json').then(function(data) {
-      return data.json();
-    }).then(function(data) {
-      this.blog = data;
-      console.log(data);
-    })
-  },
-  methods: {
-
-  },
-};
+  props: ['id'],
+  computed: {
+    blog () {
+      return this.$store.getters.loadedPost(this.id)
+    },
+    loading () {
+      return this.$store.getters.loading
+    }
+  }
+}
 </script>
 
 <style lang="sass">
