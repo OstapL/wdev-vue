@@ -38,6 +38,7 @@ export default {
       imageUrl: '',
       content: '',
       hashtags: '',
+      date: null,
       image: null
     }
   },
@@ -58,6 +59,7 @@ export default {
         title: this.title,
         content: this.content,
         image: this.image,
+        date: new Date(),
         hashtags: this.hashtags
       }
       this.$store.dispatch('createdPosts', postData)

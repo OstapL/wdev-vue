@@ -31,7 +31,7 @@
                 hr.line
                 p.text {{ blog.content }}
                 .date-more
-                  // h6.light {{ blog.hashtags }}
+                  h6.light {{ blog.date | date}}
                   i(aria-hidden="true").fa.fa-long-arrow-right
 </template>
 

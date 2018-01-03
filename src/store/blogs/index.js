@@ -24,6 +24,7 @@ export default {
               title: obj[key].title,
               content: obj[key].content,
               imageUrl: obj[key].imageUrl,
+              date: obj[key].date,
               hashtags: obj[key].hashtags
             })
           }
@@ -39,6 +40,7 @@ export default {
       const blog = {
         title: payload.title,
         content: payload.content,
+        date: payload.date.toISOString(),
         hashtags: payload.hashtags
       }
       let key

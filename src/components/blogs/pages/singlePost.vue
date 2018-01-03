@@ -7,7 +7,7 @@
           .autor-name
             // h4 {{ blog.author }}
             // h4.light {{ blog.position }}
-          // h4.light.date {{ blog.date }}
+          h4.light.date {{ blog.date | date}}
         .content
           h2.text-center {{ blog.title }}
           hr.line

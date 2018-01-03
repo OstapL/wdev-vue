@@ -2,11 +2,13 @@ import Vue from 'vue';
 import VueResource from 'vue-resource';
 import './foundation';
 import * as firebase from 'firebase'
-
+import DateFilter from './filters/date'
 import App from './App';
 import router from './router';
 import { store } from './store'
+
 Vue.use(VueResource);
+Vue.filter('date', DateFilter);
 
 new Vue({
   el: '#app',
