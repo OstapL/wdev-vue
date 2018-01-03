@@ -11,7 +11,7 @@ import allposts from '../components/blogs/pages/allPosts';
 import singlepost from '../components/blogs/pages/singlePost';
 // blog admin
 import addpost from '../components/blogs/admin/addPosts';
-
+import signup from '@/components/users/Signup'
 Vue.use(Router);
 
 export default new Router({
@@ -27,5 +27,6 @@ export default new Router({
     { name: 'singlepost', path: '/blogs/:id', props: true, component: singlepost },
     // blog admin
     { name: 'addpost', path: '/blogs/admin/add-post', component: addpost },
+    { name: 'signup', path: '/signup', component: signup }
   ],
 });

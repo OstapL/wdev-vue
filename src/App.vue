@@ -10,11 +10,10 @@
 
 import header from './components/general/header';
 import footer from './components/general/footer';
-
 export default {
   components: {
     'app-header': header,
-    'app-footer': footer,
+    'app-footer': footer
   },
   data() {
     return {
