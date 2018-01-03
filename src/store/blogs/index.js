@@ -23,6 +23,7 @@ export default {
               id: key,
               title: obj[key].title,
               content: obj[key].content,
+              imageUrl: obj[key].imageUrl,
               hashtags: obj[key].hashtags
             })
           }
@@ -41,14 +42,25 @@ export default {
         hashtags: payload.hashtags
       }
       let key
+      let imageUrl
       firebase.database().ref('blogs').push(blog)
         .then((data) => {
           key = data.key
           return key
         })
+        .then(key => {
+          const filename = payload.image.name
+          const ext = filename.slice(filename.lastIndexOf('.'))
+          return firebase.storage().ref('blogs/' + key + '.' + ext).put(payload.image)
+        })
+        .then(fileData => {
+          imageUrl = fileData.metadata.downloadURLs[0]
+          return firebase.database().ref('blogs').child(key).update({imageUrl: imageUrl})
+        })
         .then(() => {
           commit('createPosts', {
             ...blog,
+            imageUrl: imageUrl,
             id: key
           })
         })

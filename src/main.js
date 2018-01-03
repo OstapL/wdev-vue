@@ -20,7 +20,7 @@ new Vue({
       authDomain: "webdev-vue.firebaseapp.com",
       databaseURL: "https://webdev-vue.firebaseio.com",
       projectId: "webdev-vue",
-      storageBucket: "webdev-vue.appspot.com",
+      storageBucket: "gs://webdev-vue.appspot.com",
       messagingSenderId: "88701941783"
     })
     this.$store.dispatch('loadPosts')

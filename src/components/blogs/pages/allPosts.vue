@@ -25,7 +25,7 @@
         .columns.large-4.medium-6.small-12(v-for="blog in blogs" v-bind:key="blog.id")
           router-link(v-bind:to="'/blogs/' + blog.id")
             .one-post
-              img(src="../../../assets/blog/one-post.png" alt="").img-post
+              img(:src="blog.imageUrl").img-post
               .text-more
                 h4 {{ blog.title }}
                 hr.line
