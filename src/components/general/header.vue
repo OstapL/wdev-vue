@@ -16,6 +16,8 @@
             router-link(to="/contact") Contacts
           li
             router-link(to="/blogs/all-post") Blog
+        button(data-toggle="offCanvas" type="button")
+          i.fa.fa-bars
 </template>
 
 

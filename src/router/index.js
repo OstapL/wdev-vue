@@ -11,7 +11,9 @@ import allposts from '../components/blogs/pages/allPosts';
 import singlepost from '../components/blogs/pages/singlePost';
 // blog admin
 import addpost from '../components/blogs/admin/addPosts';
-import signup from '@/components/users/Signup'
+import signup from '@/components/users/Signup';
+import signin from '@/components/users/Signin';
+import AuthGuard from './auth-guard';
 Vue.use(Router);
 
 export default new Router({
@@ -26,7 +28,8 @@ export default new Router({
     { name: 'allposts', path: '/blogs/all-post', component: allposts },
     { name: 'singlepost', path: '/blogs/:id', props: true, component: singlepost },
     // blog admin
-    { name: 'addpost', path: '/blogs/admin/add-post', component: addpost },
-    { name: 'signup', path: '/signup', component: signup }
+    { name: 'addpost', path: '/blogs/admin/add-post', component: addpost, beforeEnter: AuthGuard},
+    { name: 'signup', path: '/signup', component: signup },
+    { name: 'signin', path: '/signin', component: signin }
   ],
 });

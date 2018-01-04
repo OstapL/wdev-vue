@@ -85,5 +85,7 @@ export default {
 </script>
 
 <style lang="sass">
+  #add-blogs
+    margin-top: 100px
   @import '../../../styles/pages/blog';
 </style>

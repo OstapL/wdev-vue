@@ -25,7 +25,8 @@ export default {
               content: obj[key].content,
               imageUrl: obj[key].imageUrl,
               date: obj[key].date,
-              hashtags: obj[key].hashtags
+              hashtags: obj[key].hashtags,
+              creatorId: obj[key].creatorId
             })
           }
           commit('setLoadedPosts', blogs)
@@ -36,12 +37,13 @@ export default {
           }
         )
     },
-    createdPosts ({commit}, payload) {
+    createdPosts ({commit, getters}, payload) {
       const blog = {
         title: payload.title,
         content: payload.content,
         date: payload.date.toISOString(),
-        hashtags: payload.hashtags
+        hashtags: payload.hashtags,
+        creatorId: getters.user.id
       }
       let key
       let imageUrl

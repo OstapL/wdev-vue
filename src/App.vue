@@ -1,7 +1,9 @@
 <template lang="pug">
   div
     app-header
-    #content
+    app-canvas
+
+    #content.off-canvas-content(data-off-canvas-content data-transition="push")
       router-view
     app-footer
 </template>
@@ -10,10 +12,12 @@
 
 import header from './components/general/header';
 import footer from './components/general/footer';
+import rightCanvasMenu from './components/general/offcanvas';
 export default {
   components: {
     'app-header': header,
-    'app-footer': footer
+    'app-footer': footer,
+    'app-canvas': rightCanvasMenu
   },
   data() {
     return {

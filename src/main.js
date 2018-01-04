@@ -25,6 +25,11 @@ new Vue({
       storageBucket: "gs://webdev-vue.appspot.com",
       messagingSenderId: "88701941783"
     })
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        this.$store.dispatch('autoSignIn', user)
+      }
+    })
     this.$store.dispatch('loadPosts')
   }
 });
