@@ -13,7 +13,8 @@
         label Heshtags
         input(type="text" name="hashtags" id="hashtags" required v-model="hashtags")
       .columns.large-12.medium-12.small-12
-        textarea(placeholder="content" name="content" id="content" v-model="content")
+        quill-editor(v-model="content"
+          ref="myQuillEditor")
       .columns.large-12.medium-12.small-12
         p Post Image
         .large-3
@@ -30,8 +31,14 @@
 </template>
 
 <script>
-
+import { quillEditor } from 'vue-quill-editor'
+import 'quill/dist/quill.core.css'
+import 'quill/dist/quill.snow.css'
+import 'quill/dist/quill.bubble.css'
 export default {
+  components: {
+    quillEditor
+  },
   data () {
     return {
       title: '',
@@ -42,15 +49,22 @@ export default {
       image: null
     }
   },
+
   computed: {
     formValid () {
       return this.title !== '' &&
         this.content !== '' &&
-        this.imageUrl !== '' &&
         this.hashtags !== ''
-    }
+    },
+    editor() {
+        return this.$refs.myQuillEditor.quill
+      }
   },
   methods: {
+    onEditorChange({ quill, html, text }) {
+      console.log('editor change!', quill, html, text)
+      this.content = html
+    },
     onCreatePost () {
       if (!this.formValid) {
         return
@@ -88,4 +102,6 @@ export default {
   #add-blogs
     margin-top: 100px
   @import '../../../styles/pages/blog';
+  .ql-container
+    min-height: 300px
 </style>

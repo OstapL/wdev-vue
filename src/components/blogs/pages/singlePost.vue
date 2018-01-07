@@ -11,8 +11,7 @@
         .content
           h2.text-center {{ blog.title }}
           hr.line
-          p {{ blog.content }}
-          img(src="../../../assets/blog/popular.png" alt="")
+          div(v-html="blog.content")
         .social-heshtags
           .heshtags
             span {{ blog.hashtags }}&nbsp;
