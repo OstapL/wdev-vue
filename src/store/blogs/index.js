@@ -10,6 +10,20 @@ export default {
     },
     createPosts (state, payload) {
       state.loadedPosts.push(payload)
+    },
+    updatePost (state, payload) {
+      const blog = state.loadedPosts.find(blog => {
+        return blog.id === payload.id
+      })
+      if (payload.title) {
+        blog.title = payload.title
+      }
+      if (payload.hashtags) {
+        blog.hashtags = payload.hashtags
+      }
+      if (payload.content) {
+        blog.content = payload.content
+      }
     }
   },
   actions: {
@@ -72,6 +86,28 @@ export default {
           console.log(error)
         })
     },
+    updatePostData ({commit}, payload) {
+      commit('setLoading', true)
+      const updateObj = {}
+      if (payload.title) {
+        updateObj.title = payload.title
+      }
+      if (payload.hashtags) {
+        updateObj.hashtags = payload.hashtags
+      }
+      if (payload.content) {
+        updateObj.content = payload.content
+      }
+      firebase.database().ref('blogs').child(payload.id).update(updateObj)
+        .then(() => {
+          commit('setLoading', false)
+          commit('updatePost', payload)
+        })
+        .catch(error => {
+          console.log(error)
+          commit('setLoading', false)
+        })
+    }
   },
   getters: {
     loadedPosts (state) {

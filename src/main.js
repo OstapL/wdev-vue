@@ -5,10 +5,12 @@ import * as firebase from 'firebase'
 import DateFilter from './filters/date'
 import App from './App';
 import router from './router';
-import { store } from './store'
+import { store } from './store';
+import editPostModal from './components/blogs/admin/editPost.vue';
 
 Vue.use(VueResource);
 Vue.filter('date', DateFilter);
+Vue.component('app-edit-post-modal', editPostModal);
 
 new Vue({
   el: '#app',

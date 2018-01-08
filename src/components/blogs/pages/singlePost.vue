@@ -2,6 +2,9 @@
   section#single-post
     .row.align-center
       .columns.large-10.medium-10.small-12
+        template(v-if="userIsCreator")
+          app-edit-post-modal(:blog="blog")
+
         .autor
           img(src="../../../assets/team/ceo.png" alt="").autor-img
           .autor-name
@@ -63,6 +66,15 @@ export default {
     },
     loading () {
       return this.$store.getters.loading
+    },
+    userIsAuthenticated () {
+      return this.$store.getters.user !== null && this.$store.getters.user !== undefined
+    },
+    userIsCreator () {
+      if (!this.userIsAuthenticated) {
+        return false
+      }
+      return this.$store.getters.user.id === this.blog.creatorId
     }
   }
 }
