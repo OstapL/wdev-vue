@@ -18,7 +18,7 @@ new Vue({
   store,
   template: '<App/>',
   components: { App },
-  created() {
+  created () {
     firebase.initializeApp({
       apiKey: "AIzaSyA_7ylkMKqy855O7iiJ3WHSfMILl1pv2sQ",
       authDomain: "webdev-vue.firebaseapp.com",
@@ -30,8 +30,10 @@ new Vue({
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         this.$store.dispatch('autoSignIn', user)
+        this.$store.dispatch('fetchUserData')
       }
     })
     this.$store.dispatch('loadPosts')
+    this.$store.dispatch('loadUsers')
   }
 });

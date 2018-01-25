@@ -46,7 +46,7 @@ export default {
       content: '',
       hashtags: '',
       date: null,
-      image: null
+      image: null,
     }
   },
 

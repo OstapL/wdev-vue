@@ -40,7 +40,7 @@ export default {
   watch: {
     user (value) {
       if (value !== null && value !== undefined) {
-        this.$router.push('/') // redirect to main page after user click submit btn
+        this.$router.push('/profile') // redirect to main page after user click submit btn
       }
     }
   },

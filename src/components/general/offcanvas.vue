@@ -3,7 +3,7 @@
     h5.title.light Profile menu
     ul(v-if="userIsAuthenticated")
       li
-        a(href="#") Profile
+        router-link(to="profile") Profile
       li
         router-link(to="blogs/admin/add-post") Add Post
       li

@@ -2,7 +2,9 @@ import * as firebase from 'firebase'
 
 export default {
   state: {
-    loadedPosts: []
+    loadedPosts: [],
+    loading: false,
+    error: null
   },
   mutations: {
     setLoadedPosts (state, payload) {
@@ -28,6 +30,7 @@ export default {
   },
   actions: {
     loadPosts ({commit}) {
+      commit('setLoading', true)
       firebase.database().ref('blogs').once('value')
         .then((data) => {
           const blogs = []
@@ -43,11 +46,26 @@ export default {
               creatorId: obj[key].creatorId
             })
           }
+          const users = []
+          firebase.database().ref('users').once('value')
+            .then((data) => {
+              const obj = data.val()
+              for (let key in obj) {
+                id: key,
+                creatorId: obj[key].creatorId,
+                userName: obj[key].userName,
+                userPosition: obj[key].userPosition
+
+              }
+            })
+          // ходить по списку блогов и для каждого блога находить пользователя в  массиве users
           commit('setLoadedPosts', blogs)
+          commit('setLoading', false)
         })
         .catch(
           (error) => {
             console.log(error)
+            commit('setLoading', false)
           }
         )
     },
@@ -57,7 +75,7 @@ export default {
         content: payload.content,
         date: payload.date.toISOString(),
         hashtags: payload.hashtags,
-        creatorId: getters.user.id
+        creatorId: getters.users.id
       }
       let key
       let imageUrl
