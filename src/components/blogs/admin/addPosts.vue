@@ -54,7 +54,8 @@ export default {
     formValid () {
       return this.title !== '' &&
         this.content !== '' &&
-        this.hashtags !== ''
+        this.hashtags !== '' &&
+        this.imageUrl !== ''
     },
     editor() {
         return this.$refs.myQuillEditor.quill
@@ -77,6 +78,7 @@ export default {
         hashtags: this.hashtags
       }
       this.$store.dispatch('createdPosts', postData)
+      this.$router.push('/blogs/all-post')
     },
     onPickFile () {
       this.$refs.fileInput.click()

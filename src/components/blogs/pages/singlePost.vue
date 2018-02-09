@@ -8,11 +8,11 @@
         template(v-if="userIsCreator")
           app-edit-post-modal(v-bind:blog="blog")
 
-        // .autor
-          img(src="../../../assets/team/ceo.png" alt="").autor-img
+        .autor
+          img(:src="user.imageUrl" alt="").autor-img
           .autor-name
             h4 {{ user.userName }}
-            // h4.light {{ blog.userPosition }}
+            h4.light {{ user.userPosition }}
           h4.light.date {{ blog.date | date}}
         .content
           h2.text-center {{ blog.title }}
@@ -67,10 +67,16 @@ export default {
     blog () {
       return this.$store.getters.loadedPost(this.id)
     },
-    user () {
-        return this.$store.getters.loadedUser(this.id)
-    },
 
+    user () {
+      let userdata = this.$store.getters.users
+      let blogdata = this.blog
+      for (let key in userdata) {
+        if(userdata[key].creatorId === blogdata.creatorId) {
+          return userdata[key]
+        }
+      }
+    },
     userIsAuthenticated () {
       return this.$store.getters.user !== null && this.$store.getters.user !== undefined
     },
@@ -80,6 +86,7 @@ export default {
       }
       return this.$store.getters.user.id === this.blog.creatorId
     },
+
     loading () {
       return this.$store.getters.loading
     }

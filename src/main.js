@@ -33,7 +33,9 @@ new Vue({
         this.$store.dispatch('fetchUserData')
       }
     })
+
     this.$store.dispatch('loadPosts')
     this.$store.dispatch('loadUsers')
+
   }
 });

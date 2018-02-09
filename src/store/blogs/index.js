@@ -46,19 +46,6 @@ export default {
               creatorId: obj[key].creatorId
             })
           }
-          const users = []
-          firebase.database().ref('users').once('value')
-            .then((data) => {
-              const obj = data.val()
-              for (let key in obj) {
-                id: key,
-                creatorId: obj[key].creatorId,
-                userName: obj[key].userName,
-                userPosition: obj[key].userPosition
-
-              }
-            })
-          // ходить по списку блогов и для каждого блога находить пользователя в  массиве users
           commit('setLoadedPosts', blogs)
           commit('setLoading', false)
         })
@@ -75,7 +62,7 @@ export default {
         content: payload.content,
         date: payload.date.toISOString(),
         hashtags: payload.hashtags,
-        creatorId: getters.users.id
+        creatorId: getters.user.id
       }
       let key
       let imageUrl

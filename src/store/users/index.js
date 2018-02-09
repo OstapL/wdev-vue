@@ -5,14 +5,14 @@ export default {
     user: null,
     loading: false,
     error: null,
-    users: []
+    loadUsers: []
   },
   mutations: {
     setUser (state, payload) {
       state.user = payload
     },
     setLoadedUsers (state, payload) {
-      state.users = payload
+      state.loadUsers = payload
     },
     createUserData (state, payload) {
       state.users.push(payload)
@@ -80,14 +80,25 @@ export default {
         creatorId: getters.user.id
       }
       let key
+      let imageUrl
       firebase.database().ref('users').push(user)
         .then((data) => {
           key = data.key
           return key
         })
+        .then(key => {
+          const filename = payload.image.name
+          const ext = filename.slice(filename.lastIndexOf('.'))
+          return firebase.storage().ref('users/' + key + '.' + ext).put(payload.image)
+        })
+        .then(fileData => {
+          imageUrl = fileData.metadata.downloadURLs[0]
+          return firebase.database().ref('users').child(key).update({imageUrl: imageUrl})
+        })
         .then(() => {
           commit('createUserData', {
             ...user,
+            imageUrl: imageUrl,
             id: key
           })
         })
@@ -106,6 +117,7 @@ export default {
               id: key,
               userName: obj[key].userName,
               userPosition: obj[key].userPosition,
+              imageUrl: obj[key].imageUrl,
               creatorId: obj[key].creatorId
             })
           }
@@ -134,14 +146,7 @@ export default {
       return state.user
     },
     users (state) {
-      return state.users
+      return state.loadUsers
     },
-    loadedUser (state) {
-      return (userId) => {
-        return state.users.find((user) => {
-          return user.id === userId
-        })
-      }
-    }
   }
 }
