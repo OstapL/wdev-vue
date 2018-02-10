@@ -15,7 +15,7 @@ import signup from '../components/users/Signup'
 import signin from '../components/users/Signin'
 import AuthGuard from './auth-guard'
 import Profile from '../components/users/Profile'
-import userDara from '../components/users/user'
+
 Vue.use(Router);
 
 export default new Router({
@@ -32,7 +32,6 @@ export default new Router({
     { name: 'addpost', path: '/blogs/admin/add-post', component: addpost, beforeEnter: AuthGuard},
     { name: 'signup', path: '/signup', component: signup },
     { name: 'signin', path: '/signin', component: signin },
-    { name: 'profile', path: '/profile', component: Profile},
-    { name: 'userDara', path: '/user/:id', props: true,  component: userDara }
+    { name: 'profile', path: '/profile', component: Profile}
   ],
 });

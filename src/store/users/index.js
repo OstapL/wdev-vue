@@ -148,5 +148,12 @@ export default {
     users (state) {
       return state.loadUsers
     },
+    loadedUserData (state) {
+      return (userId) => {
+        return state.setLoadedUsers.find((user) => {
+          return user.id === userId
+        })
+      }
+    }
   }
 }
