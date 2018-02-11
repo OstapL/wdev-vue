@@ -3,9 +3,9 @@
     h5.title.light Profile menu
     ul(v-if="userIsAuthenticated")
       li
-        router-link(to="profile") Profile
+        router-link(:to="{path: '/profile'}") Profile
       li
-        router-link(to="blogs/admin/add-post") Add Post
+        router-link(:to="{path: '/blogs/admin/add-post'}") Add Post
       li
         a(href="#" @click="onLogout") Log out
     ul(v-else)
