@@ -20,7 +20,8 @@
           div(v-html="blog.content")
         .social-heshtags
           .heshtags
-            span {{ blog.hashtags }}&nbsp;
+            span(v-for="hashtag in blog.hashtags")
+              | {{ hashtag.value }}&nbsp;
       .columns.large-12.medium-12.small-12
         .social-block
           a(href="#").circle.fbShare

@@ -5,13 +5,15 @@
       .columns
         h2.text-center Add Blog post
         hr.line
-    form(v-on:submit.prevent="onCreatePost").row
-      .columns.large-6.medium-6.small-12
-        label Post Title
-        input(type="text" name="title" id="title" required v-model="title")
-      .columns.large-6.medium-6.small-12
-        label Heshtags
-        input(type="text" name="hashtags" id="hashtags" required v-model="hashtags")
+    form(v-on:submit.prevent="onCreatePost").row.align-middle
+      .columns.large-4.medium-4.small-12
+        input(type="text" name="title" id="title" required v-model="title" placeholder="Post Title")
+      .columns.large-4.medium-4.small-12
+        button(v-on:click.prevent="addHashtag").button.small.expanded.main add hashtag
+      .columns.large-4.medium-4.small-12
+        div(v-for="(hashtag, index) in hashtags").hashtags__input
+          input(type="text" name="hashtags" id="hashtags" required v-model="hashtag.value" placeholder="Hashtags").input-group-field
+          button(v-on:click.prevent="deleteHashtag(index)") -
       .columns.large-12.medium-12.small-12
         quill-editor(v-model="content"
           ref="myQuillEditor")
@@ -44,7 +46,7 @@ export default {
       title: '',
       imageUrl: '',
       content: '',
-      hashtags: '',
+      hashtags: [ ],
       date: null,
       image: null,
     }
@@ -65,6 +67,12 @@ export default {
     onEditorChange({ quill, html, text }) {
       console.log('editor change!', quill, html, text)
       this.content = html
+    },
+    addHashtag () {
+      this.hashtags.push({ value: '' });
+    },
+    deleteHashtag (index) {
+      this.hashtags.splice(index, 1);
     },
     onCreatePost () {
       if (!this.formValid) {

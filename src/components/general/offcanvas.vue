@@ -10,9 +10,9 @@
         a(href="#" @click="onLogout") Log out
     ul(v-else)
       li
-        router-link(to="signin") Sign In
+        router-link(:to="{path: '/signin'}") Sign In
       li
-        router-link(to="signup") Sign Up
+        router-link(:to="{path: '/signup'}") Sign Up
 
 </template>
 
@@ -32,6 +32,7 @@ export default {
   methods: {
     onLogout () {
       this.$store.dispatch('logout')
+      this.$router.push('/')
     }
   }
 }

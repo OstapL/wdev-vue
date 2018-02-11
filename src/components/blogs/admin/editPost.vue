@@ -13,7 +13,8 @@
         input(type="text" name="title" id="title" required v-model="editTitle")
       .columns.large-6.medium-6.small-12
         label Heshtags
-        input(type="text" name="hashtags" id="hashtags" required v-model="editHeshtag")
+        div(v-for="hashtag in editHeshtags").hashtags__input
+          input(type="text" name="hashtags" id="hashtags" v-model="hashtag.value" required  placeholder="Hashtags").input-group-field
       .columns.large-12.medium-12.small-12
         quill-editor(v-model="editContent"
           ref="myQuillEditor")
@@ -36,7 +37,7 @@ export default {
   data () {
     return {
       editTitle: this.blog.title,
-      editHeshtag: this.blog.hashtags,
+      editHeshtags: this.blog.hashtags,
       editContent: this.blog.content
     }
   },
@@ -59,7 +60,7 @@ export default {
       this.reveal.close()
     },
     onSaveChanges () {
-      if (this.editTitle.trim() === '' || this.editHeshtag.trim() === '' || this.editContent.trim() === '') {
+      if (this.editTitle.trim() === ''  || this.editContent.trim() === '') {
         return
       }
       this.$store.dispatch('updatePostData', {

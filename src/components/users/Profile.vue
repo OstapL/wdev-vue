@@ -1,8 +1,5 @@
 <template lang="pug">
   div#profile
-    section(v-if="loading").loading
-      .load
-        i.fa.fa-cog.fa-spin.fa-3x.fa-fw
     h2.text-center Profile
 
     form(v-on:submit.prevent="onCreateUserData" v-if="dataValid").row
@@ -14,11 +11,12 @@
         input(type="text" name="position" id="position" required v-model="userPosition")
       .columns.large-12.medium-12.small-12
         p Post Image
-        .large-3
-          button(@click="onPickFile").button.small.expanded.main Upload Image
-          input(type="file" style="display: none" ref="fileInput" accept="image/*" @change="onFilePicked")
         .large-12
-          img(:src="imageUrl")
+          img(:src="imageUrl").user__img
+        .large-3
+          button(v-on:click.prevent="onPickFile").button.small.expanded.main Upload Image
+          input(type="file" style="display: none" ref="fileInput" accept="image/*" @change="onFilePicked")
+
       .columns
         .large-3.float-right
           button( type="submit").button.small.expanded.main Submit
@@ -46,7 +44,7 @@ export default {
     return {
       userName: '',
       userPosition: '',
-      imageUrl: '',
+      imageUrl: 'http://pctrs.network.hu/clubpicture/2/3/1/_/smiley_231728_50205.gif',
       image: null
     }
   },
@@ -55,10 +53,12 @@ export default {
       return this.user == undefined
     },
     user () {
-      const userId = this.$store.getters.user.id
-      for(let key in this.$store.getters.users) {
-        if(userId === this.$store.getters.users[key].creatorId)
-        return this.$store.getters.users[key]
+      const userId = this.$store.getters.user
+      if(userId != undefined) {
+        for(let key in this.$store.getters.users) {
+          if(userId.id === this.$store.getters.users[key].creatorId)
+          return this.$store.getters.users[key]
+        }
       }
     },
     blogs () {
@@ -68,9 +68,6 @@ export default {
         return blog.creatorId === user
       })
       return result
-    },
-    loading () {
-      return this.$store.getters.loading
     }
   },
   methods: {
@@ -81,6 +78,9 @@ export default {
         image: this.image,
       }
       this.$store.dispatch('createUserData', userData)
+      setTimeout(function(){
+        location.reload()
+      }, 2000);
     },
     onPickFile () {
       this.$refs.fileInput.click()
